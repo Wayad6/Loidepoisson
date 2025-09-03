@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Prédiction Score Exact - Loi de Poisson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+  <header>
+    <h1> Calculateur de Score Probable (Poisson)</h1>
+  </header>
+
+  <main>
+    <!-- Équipe Domicile -->
+    <section class="block">
+      <h2>Équipe Domicile</h2>
+
+      <div class="form-group">
+        <label>Nombres de Matchs</label>
+        <input type="number" id="homeMatches" placeholder="ex: 10" required min="0">
+        <div class="error-message" id="error-homeMatches"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Buts marqués</label>
+        <input type="number" id="homeGoalsScored" placeholder="ex: 21" required min="0">
+        <div class="error-message" id="error-homeGoalsScored"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Buts encaissés</label>
+        <input type="number" id="homeGoalsConceded" placeholder="ex: 9" required min="0">
+        <div class="error-message" id="error-homeGoalsConceded"></div>
+      </div>
+    </section>
+
+    <!-- Équipe Extérieure -->
+    <section class="block">
+      <h2>Équipe Extérieure</h2>
+
+      <div class="form-group">
+        <label>Nombres de Matchs</label>
+        <input type="number" id="awayMatches" placeholder="ex: 10" required min="0">
+        <div class="error-message" id="error-awayMatches"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Buts marqués</label>
+        <input type="number" id="awayGoalsScored" placeholder="ex: 14" required min="0">
+        <div class="error-message" id="error-awayGoalsScored"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Buts encaissés</label>
+        <input type="number" id="awayGoalsConceded" placeholder="ex: 18" required min="0">
+        <div class="error-message" id="error-awayGoalsConceded"></div>
+      </div>
+    </section>
+
+    <div class="btn-center">
+      <button onclick="calculer()">Calculer les Probabilités</button>
+    </div>
+
+    <div id="result"></div>
+    
+    <hr />
+  
+    <div class="explanation-container">
+  <h2>Prédicteur de Scores de Football avec la Loi de Poisson</h2>
+  <div class="formula">
+P(X = k) = (e^{-λ} × λ^k) ÷ k!
+</div>
+  
+  <p>Cet outil permet de prédire les scores probables d'un match de football en utilisant la <strong>loi de Poisson</strong>, une formule mathématique qui modélise la probabilité qu'un certain nombre d'événements se produisent dans un intervalle de temps fixe.</p>
+  
+  <div class="highlight">
+    <p>Notre outil calcule automatiquement les moyennes de buts à partir des données que vous fournissez, ce qui rend la prédiction plus précise et accessible.</p>
+  </div>
+  
+  <h3>Comment utiliser cet outil ?</h3>
+  <ul>
+    <li><strong>Pour l'équipe à domicile :</strong> Entrez le nombre de matchs joués, le total des buts marqués et le total des buts encaissés</li>
+    <li><strong>Pour l'équipe visiteuse :</strong> Entrez le nombre de matchs joués, le total des buts marqués et le total des buts encaissés</li>
+    <li>Notre algorithme calcule automatiquement les moyennes pertinentes pour chaque équipe</li>
+    <li>Cliquez sur "Calculer" pour voir les scores les plus probables</li>
+    <li>Utilisez ces informations pour analyser les matchs à venir</li>
+  </ul>
+  
+  <h3>Pourquoi cette méthode est-elle efficace ?</h3>
+  <ul>
+    <li>Nous prenons en compte à la fois l'attaque et la défense de chaque équipe</li>
+    <li>Le calcul des moyennes est automatisé, éliminant les erreurs de calcul manuelles</li>
+    <li>La loi de Poisson est particulièrement adaptée au football où les buts sont des événements rares</li>
+    <li>L'approche est transparente et basée sur des données statistiques objectives</li>
+  </ul>
+  
+  <div class="github-section">
+  <div class="github-icon">🐙</div>
+  <div class="github-text">
+    <strong>Projet Open Source</strong><br>
+    Ce projet est open source et disponible sur GitHub. Les développeurs peuvent contribuer, proposer des améliorations ou utiliser le code pour leurs propres projets.
+    <br>
+    <a href="https://github.com/votre-utilisateur/votre-repo" class="github-link">Voir le projet sur GitHub →</a>
+  </div>
+</div>
+  
+  <p class="note">Note : Cet outil est destiné à l'analyse statistique et à l'éducation. Les paris sportifs comportent des risques financiers et doivent être abordés avec prudence.</p>
+</div>
+  </main>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
